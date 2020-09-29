@@ -28,13 +28,11 @@ class NAVIGATE_OT_zoom_to_selection(Operator):
 
     def execute(self, context):
         prefs = utils.prefs().inputs
-        # if is27: prefs = context.user_preferences.view
 
         old = prefs.use_zoom_to_mouse
         prefs.use_zoom_to_mouse = True
 
         prefs2 = utils.prefs().inputs
-        # if is27: prefs2 = context.user_preferences.view
 
         old2 = prefs2.use_mouse_depth_navigate
         prefs2.use_mouse_depth_navigate = True

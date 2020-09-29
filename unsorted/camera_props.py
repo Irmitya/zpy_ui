@@ -1,5 +1,5 @@
 import bpy
-from zpy import Is, Get, is27, is28, utils
+from zpy import Is, Get, utils
 
 
 class PROPS_PT_camera(bpy.types.Panel):
@@ -10,7 +10,6 @@ class PROPS_PT_camera(bpy.types.Panel):
 
     @classmethod
     def poll(self, context):
-        if is27: return
         return Is.camera(context.object)
 
     def draw_header(self, context):

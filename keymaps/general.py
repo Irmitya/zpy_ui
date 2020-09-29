@@ -17,7 +17,6 @@ def register():
     # Show Undo/Redo Panel
     km.add('ed.undo_history', name='Window', type='Z', ctrl=True, alt=True, value='PRESS')
     km.add('screen.redo_last', name='Screen', type='SPACE', alt=True, value='PRESS')
-    # if is27: km.add('screen.redo_last', name='3D View', type='SPACE', alt=True, value='PRESS')
 
     # Repeat Operator
     km.add('screen.repeat_history', name='Screen', type='R', shift=True, alt=True, value='PRESS')

@@ -1,5 +1,5 @@
 import bpy
-from zpy import Is, Get, is27, is28
+from zpy import Is, Get
 
 
 class PRESET_PT_lights(bpy.types.Panel):
@@ -39,8 +39,7 @@ class PRESET_PT_lights(bpy.types.Panel):
         # else:
         #     assert None, ("New/Unknown shadow method", eve.shadow_method)
 
-        light_icon = ('LIGHT', 'LAMP')[is27]
-        light_icon += '_' + light.type
+        light_icon = 'LIGHT_' + light.type
         # if preset:
         #     light_icon += '_' + light.type
         #     preset = True
@@ -49,7 +48,6 @@ class PRESET_PT_lights(bpy.types.Panel):
 
         args = dict(icon=light_icon, depress=True)
         # args = dict(icon=light_icon, depress=preset)
-        if is27: args.pop('depress')
 
         # # layout.emboss = 'PULLDOWN_MENU'
         # row = layout.row()
