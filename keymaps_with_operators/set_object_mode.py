@@ -45,6 +45,11 @@ class OBJECT_OT_set_mode_armature_mesh(bpy.types.Operator):
     def execute(self, context):
         (rig, mesh) = self.get_rig_mesh(context)
 
+        # Switch to object mode first, to prevent sending rig to empty mode
+        # happens when switching from Armature Edit to Weight Paint (warning but no error)
+        # from there, trying to change the armature mode gives error after fixing the mode
+        bpy.ops.object.mode_set(mode='OBJECT')
+
         if self.mode == 'POSE':
             Set.active(context, rig)
             return bpy.ops.object.mode_set(mode='POSE')
