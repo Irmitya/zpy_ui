@@ -24,14 +24,11 @@ def register():
     # km.add('screen.repeat_last', name='Screen', type='R', shift=True, value='CLICK')
     # km.toggle('screen.repeat_last', name='Screen', type='R', shift=True, value='PRESS')
 
-    # Isolate selected
-    args = dict(name='3D View', type='TAB')
-    km.add('wm.context_toggle', **args, value='PRESS', ctrl=True, data_path='tool_settings.use_snap')
-    args['shift'] = True
-    km.add('view3d.localview', **args, value='CLICK_DRAG', frame_selected=False)
-    km.add('view3d.localview', **args, value='CLICK', frame_selected=True)
-    km.toggle('wm.context_toggle', **args, value='PRESS')  # Disable shift+tab snap toggle
-    km.toggle('view3d.object_mode_pie_or_toggle', name='Object Non-modal', type='TAB', value='PRESS', ctrl=True)
+    # Disable Mode Toggle, Enable Snap Toggling (from 2.7)
+    args = dict(type='TAB', ctrl=True)
+    km.toggle('wm.context_toggle', name='3D View', type='TAB', shift=True)  # Disable shift+tab snap toggle
+    km.add('wm.context_toggle', name='3D View', **args, data_path='tool_settings.use_snap')
+    km.toggle('view3d.object_mode_pie_or_toggle', name='Object Non-modal', **args)
 
     # Pivot Menu
     args = dict(idname='wm.call_menu_pie', name='3D View', value='PRESS')
